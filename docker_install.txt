@@ -1,0 +1,28 @@
+ 46  sudo dpkg -i docker-engine_1.8.3-0~trusty_amd64.deb 
+   47  sudo apt-get install libapparmor1 aufs-tools ca-certificates
+   48  apt --fix-broken install
+   49  sudo apt --fix-broken install
+   50  sudo apt-get install libapparmor1 aufs-tools ca-certificates
+   51  sudo dpkg -i docker-engine_1.8.3-0~trusty_amd64.deb 
+   52  sudo apt-get install sysv-rc file-rc
+   53  docker --version
+   54  sudo apt update
+   55  sudo apt install apt-transport-https ca-certificates curl software-properties-common
+   56  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   57  sudo apt install curl
+   58  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   59  apt --fix-broken install
+   60  sudo apt --fix-broken install
+   61  sudo apt install apt-transport-https ca-certificates curl software-properties-common
+   62  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   63  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+   64  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+   65  sudo apt update
+   66  apt-cache policy docker-ce
+   67  sudo apt install docker-ce
+   68  sudo systemctl status docker
+   69  docker --version
+   70  history
+   71  sudo usermod -aG docker mithun
+   72  docker --version
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list

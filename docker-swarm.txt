@@ -1,0 +1,67 @@
+docker service create --name=viz --publish=8080:8080/tcp --constraint=node.role==manager --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock dockersamples/visualizer
+
+31 mkdir /etc/ansible
+32 clear
+33 cd /etc/ansible
+34 vim hosts
+35 ansible all --list-hosts
+36 clear
+37 hostnamectl set-hostname managernode.unixcloudfusion.in
+38 clear
+39 vim /etc/hosts
+40 clear
+41 curl -fsSL get.docker.com | sh
+42 usermod -aG docker vagant
+43 usermod -aG docker vagrant
+44 id vagrant
+45 systemctl start docker
+46 systemctl enable docker
+47 systemctl status docker
+48 clear
+49 docker swarm init --advertise-addr 172.31.40.185
+50 vim token.txt
+51 docker node ls
+52 docker node l
+53 clear
+54 docker node ls
+55 docker node rm workernode1.unixcloudfusion.in
+56 docker node ls
+57 docker node rm workernode1.unixcloudfusion.in
+58 docker node ls
+59 clear
+60 docker swarm leave
+61 docker node ls
+62 clear
+63 docker node ls
+64 docker node promote workernode1.unixcloudfusion.in
+65 docker node ls
+66 docker node demote workernode1.unixcloudfusion.in
+67 docker node ls
+68 clear
+69 docker service create --name=viz --publish=8080:8080/tcp --constraint=node.role==manager --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock dockersamples/visualizer
+70 clear
+71 docker service create --replicas 1 --name helloworld alpine ping docker.com
+72 docker service inspect --pretty helloworld
+73 clear
+74 docker service ps helloworld
+75 docker service scale helloworld=2
+76 docker service ps helloworld
+77 docker service rm helloworld
+78 docker service ps helloworld
+79 clear
+80 docker node update --label-add="webserver=true" workernode1.unixcloudfusion.in
+81 docker service create --name webservice -d --constraint="node.labels.webserver=true" --publish 80:80 nginx
+82 docker service create --name webservice -d --constraint=="node.labels.webserver=true" --publish 80:80 nginx
+83 docker service create --name webservice -d --constraint="node.labels.webserver==true" --publish 80:80 nginx
+84 docker service scale webservice=3
+85 docker service rm webservice
+
+
+[root@docker ~]# docker swarm init --advertise-addr 172.31.40.34
+Swarm initialized: current node (q53md7h3buibcrbd8fgdes6li) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-5mfcytssbn4zwj8qtfmvjoc6v5c1bn0mfqwboubp4it7aifojq-1690uk6i0ntwo9823rda7p4g8 172.31.40.34:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
